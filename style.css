@@ -1,0 +1,327 @@
+/* Add your CSS here */
+
+/* Style for the hero section */
+.hero {
+  /* Center the content horizontally */
+  text-align: center;
+  /* Remove all margin from the hero section */
+  margin: 0;
+  /* Reduce bottom padding to decrease space below the subheading */
+  padding: 0 20px 30px 20px;
+  width: 100%;
+  box-sizing: border-box;
+  /* Blue gradient background to match Intel colors */
+  background: linear-gradient(135deg, #0071c5 0%, #00aee6 100%);
+  /* Make text color white for better contrast */
+  color: #fff;
+  /* Use flexbox to stack items vertically and align at the top */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/* Remove default margin from body to prevent white space at the top */
+body {
+  margin: 0;
+  /* Set an off-white background for the whole page */
+  background-color: #f7f9fa;
+}
+
+/* Style the logo image */
+.hero img {
+  /* Set a maximum width so the logo isn't too big */
+  max-width: 150px;
+  /* Decrease space below the logo for less gap to headline */
+  margin-bottom: 8px;
+  /* Add some padding to the top of the logo */
+  padding-top: 50px;
+  margin-top: 0;
+}
+
+/* Style the main heading */
+.hero h1 {
+  /* Make the heading bold and much larger */
+  font-size: 3.2em;
+  margin-bottom: 10px;
+  /* Make all letters uppercase */
+  text-transform: uppercase;
+  /* Use a font similar to Intel's branding */
+  font-family: 'Segoe UI', 'Arial', sans-serif;
+  /* Set a fixed width for the headline */
+  width: 550px;
+  /* Center the headline horizontally */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Style the description paragraph */
+.hero p {
+  /* Slightly smaller text for the subheading */
+  font-size: 1.2em;
+  color: #e0e0e0; /* Light color for better contrast on blue */
+  font-family: 'Segoe UI', 'Arial', sans-serif;
+  width: 590px;
+  margin-left: auto;
+  margin-right: auto;
+  /* Make the subheading bold */
+  font-weight: bold;
+}
+
+/* Divider style for the hero section */
+.hero-divider {
+  /* Make the divider wider and light blue */
+  width: 100px;
+  /* Decrease margin to reduce space between divider and subheading */
+  margin: 10px auto;
+  border: none;
+  border-top: 4px solid #7fd7ff; /* Light blue color */
+  border-radius: 2px;
+}
+
+/* Timeline container styles */
+.timeline {
+  /* Use flexbox to arrange timeline cards horizontally */
+  display: flex;
+  flex-direction: row;
+  /* Prevent wrapping so we can scroll horizontally */
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  gap: 40px; /* Increased space between cards */
+  padding: 20px 0;
+  overflow-x: auto;
+  /* Make the scroll view bigger to show more cards at once */
+  width: 1300px; /* Shows 5 bigger cards * 250px + 4 gaps * 10px = 1300px */
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  scroll-snap-type: x mandatory; /* Enable horizontal scroll snap */
+}
+
+/* Responsive: On small screens, stack timeline cards vertically and allow vertical scroll */
+@media (max-width: 800px) {
+  .timeline {
+    flex-direction: column;      /* Stack cards vertically */
+    width: 100%;                /* Use full width */
+    height: 500px;              /* Set a height for vertical scrolling */
+    max-height: 80vh;           /* Responsive max height */
+    overflow-x: hidden;         /* Hide horizontal scroll */
+    overflow-y: auto;           /* Enable vertical scroll */
+    gap: 24px;                  /* Less gap for mobile */
+    padding: 10px 0;
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on mobile */
+  }
+  .timeline-card {
+    width: 90%;                 /* Make cards fit nicely on mobile */
+    max-width: 350px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* Responsive styles for smaller screens */
+@media (max-width: 1000px) {
+  .hero h1,
+  .hero p {
+    width: 90%;
+    max-width: 100%;
+  }
+  .timeline {
+    width: 100%;
+    padding: 10px 0;
+    gap: 24px;
+  }
+}
+
+@media (max-width: 800px) {
+  .hero {
+    padding: 0 5vw 20px 5vw;
+  }
+  .hero h1 {
+    font-size: 2em;
+    width: 100%;
+    max-width: 100%;
+  }
+  .hero p {
+    font-size: 1em;
+    width: 100%;
+    max-width: 100%;
+  }
+  .timeline {
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    max-height: none;
+    overflow-x: hidden;
+    overflow-y: visible;
+    gap: 18px;
+    padding: 10px 0;
+  }
+  .timeline-card {
+    width: 95%;
+    max-width: 350px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 12px;
+  }
+  .timeline-card img {
+    height: 100px;
+  }
+}
+
+@media (max-width: 500px) {
+  .hero {
+    padding: 0 2vw 10px 2vw;
+  }
+  .hero img {
+    max-width: 100px;
+    padding-top: 20px;
+  }
+  .hero h1 {
+    font-size: 1.2em;
+    width: 100%;
+    max-width: 100%;
+  }
+  .hero p {
+    font-size: 0.95em;
+    width: 100%;
+    max-width: 100%;
+  }
+  .timeline-card {
+    width: 99%;
+    max-width: 99%;
+    padding: 8px;
+  }
+  .timeline-card img {
+    height: 70px;
+  }
+  .timeline-card .event-title,
+  .timeline-card .year {
+    font-size: 1em;
+  }
+  .timeline-card .event-desc {
+    font-size: 0.95em;
+    padding: 8px;
+  }
+}
+
+/* Optional: Hide scrollbar for Chrome, Safari and Opera */
+/*
+.timeline::-webkit-scrollbar {
+  display: none;
+}
+*/
+
+/* Center the tips text at the bottom of the page */
+body > p {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 1em;
+}
+
+/* Timeline card styles */
+.timeline-card {
+  /* Use a simple box for each event */
+  background: #fff;
+  color: #222;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  width: 250px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex: 0 0 250px; /* Prevent cards from shrinking or growing, fixed width */
+  position: relative; /* Needed for overlay positioning */
+  overflow: hidden;   /* Hide overlay outside the card */
+  scroll-snap-align: start; /* Snap each card to the start of the scroll area */
+  perspective: 800px; /* Needed for 3D flip effect */
+}
+
+/* Year style */
+.timeline-card .year {
+  font-size: 1.3em;
+  font-weight: bold;
+  color: #0071c5; /* Intel blue */
+  margin-bottom: 4px;
+  /* Make the year left-aligned and slanted */
+  text-align: left;
+  font-style: italic;
+  transform: skew(-15deg);
+}
+
+/* Event title style */
+.timeline-card .event-title {
+  font-size: 1.1em;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-align: left; /* Left align the event name */
+  /* Remove top margin if any */
+  margin-top: 0;
+}
+
+/* Event image style */
+.timeline-card img {
+  /* Make images fill the card width and height exactly */
+  width: 100%;
+  max-width: none;
+  height: 120px;
+  object-fit: cover;       /* Crop images to fill the area without stretching */
+  border-radius: 6px;
+  margin-bottom: 10px;
+  display: block;
+  margin-top: 0;
+  /* Center the image horizontally in the card */
+  align-self: center;
+}
+
+/* Overlay for event description */
+.timeline-card .event-desc {
+  /* Overlay covers the whole card */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;      /* Cover full card width */
+  height: 100%;     /* Cover full card height */
+  max-width: none;  /* Remove fixed width so it fills the card */
+  margin-left: 0;
+  margin-right: 0;
+  /* Semi-transparent dark background */
+  background: rgba(0, 113, 197); /* 50% opacity */
+  color: #fff;
+  display: flex;
+  align-items: flex-start;      /* Align text to the top of the overlay */
+  justify-content: flex-start;  /* Align text to the left */
+  text-align: left;
+  padding: 16px;
+  font-size: 1em;
+  border-radius: 10px;
+  transition: opacity 0.3s, transform 0.6s;
+  /* Start hidden and rotated */
+  opacity: 0;
+  pointer-events: none;
+  transform: rotateY(180deg);
+  z-index: 2;
+  overflow-y: auto;
+  white-space: normal;
+  word-break: break-word;
+  line-height: 1.4;
+  box-sizing: border-box;
+  /* Start slightly scaled down and moved down */
+  transform: translateY(20px) scale(0.98);
+}
+
+/* Show overlay on hover */
+.timeline-card:hover .event-desc {
+  opacity: 1;
+  pointer-events: auto;
+  /* Flip overlay to front */
+  transform: rotateY(0deg);
+}
+
+/* Flip the card itself when hovered to hide the front content */
+.timeline-card:hover > :not(.event-desc) {
+  /* Hide the front content when overlay is shown */
+  opacity: 0;
+  transition: opacity 0.3s;
+}
