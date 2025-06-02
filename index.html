@@ -52,15 +52,15 @@
 <body>
   <!-- Hero Section -->
   <header>
-    <div class="hero">
+    <div class="hero" role="banner">
       <!-- Intel logo at the top -->
       <img src="img/intel-header-logo.svg" alt="Intel Logo" />
       <!-- Main heading for the page -->
-      <h1>
+      <h1 tabindex="0">
         Sustainability Through the Ages
       </h1>
       <!-- Divider between headline and subheading -->
-      <hr class="hero-divider">
+      <hr class="hero-divider" aria-hidden="true">
       <!-- Subheading/description for the hero section -->
       <p>
         Explore Intel's journey through time, discovering how our commitment
@@ -75,116 +75,134 @@
     We use a container with class "timeline" for the timeline.
     It will show 4 cards at a time and allow horizontal scrolling for more.
   -->
-  <section class="timeline">
-    <!-- Card 1: 1968 -->
-    <div class="timeline-card">
-      <div class="year">1968</div>
-      <div class="event-title">Intel Founded</div>
-      <img src="img/1.jpg" alt="Placeholder Image" />
-      <!-- Overlay description for this event -->
-      <div class="event-desc">
-        Robert Noyce and Gordon Moore rename the newly formed company 
-        NM Electronics to Intel Corporation, laying the foundation for 
-        decades of technological innovation.
-      </div>
-    </div>
-    <!-- Card 2: 1971 -->
-    <div class="timeline-card">
-      <div class="year">1971</div>
-      <div class="event-title">First Microprocessor</div>
-      <img src="img/2.jpg" alt="Placeholder Image" />
-      <div class="event-desc">
-        Intel debuts the 4004, the world's first commercial microprocessor, 
-        igniting the microprocessor revolution and propelling the future 
-        of computing devices.
-      </div>
-    </div>
-    <!-- Card 3: 1978 -->
-    <div class="timeline-card">
-      <div class="year">1978</div>
-      <div class="event-title">8086 Processor</div>
-      <img src="img/3.jpg" alt="Placeholder Image" />
-      <div class="event-desc">
-        Launch of the 8086 processor, establishing the x86 architecture 
-        that drives countless PCs and servers in the modern era.
-      </div>
-    </div>
-    <!-- Card 4: 1985 -->
-    <div class="timeline-card">
-      <div class="year">1985</div>
-      <div class="event-title">386 Processor</div>
-      <img src="img/4.jpg" alt="Placeholder Image" />
-      <div class="event-desc">
-        Intel introduces the 386 processor with 32-bit architecture, 
-        ushering in a new era of performance and multitasking for 
-        personal computers.
-      </div>
-    </div>
-    <!-- Card 5: 2006 -->
-    <div class="timeline-card">
-      <div class="year">2006</div>
-      <div class="event-title">Peak GHG Emissions</div>
-      <img src="https://placehold.co/250x100" alt="Placeholder Image" />
-      <div class="event-desc">
-        This year marks Intel's highest annual greenhouse gas emissions 
-        for operations. Over subsequent years, Intel invests heavily in 
-        chemical abatement, renewable energy, and energy-efficient 
-        manufacturing to reverse this trend.
-      </div>
-    </div>
-    <!-- Card 6: 2020 -->
-    <div class="timeline-card">
-      <div class="year">2020</div>
-      <div class="event-title">RISE Strategy</div>
-      <img src="https://placehold.co/250x100" alt="Placeholder Image" />
-      <div class="event-desc">
-        Intel launches its RISE (Responsible, Inclusive, Sustainable, 
-        Enabling) strategy and 2030 goals, aiming to drive industry-wide 
-        progress on climate action, water stewardship, and waste reduction.
-      </div>
-    </div>
-    <!-- Card 7: 2022 -->
-    <div class="timeline-card">
-      <div class="year">2022</div>
-      <div class="event-title">Net-Zero By 2040</div>
-      <img src="https://placehold.co/250x100" alt="Placeholder Image" />
-      <div class="event-desc">
-        Intel announces its commitment to achieve net-zero greenhouse 
-        gas emissions (Scope 1 and 2) across its global operations 
-        by 2040, building on years of environmental initiatives.
-      </div>
-    </div>
-    <!-- Card 8: 2023 -->
-    <div class="timeline-card">
-      <div class="year">2023</div>
-      <div class="event-title">Renewable Electricity</div>
-      <img src="https://placehold.co/250x100" alt="Placeholder Image" />
-      <div class="event-desc">
-        The company achieves 99% renewable electricity usage worldwide, 
-        helping to drastically lower carbon emissions and driving progress 
-        toward Intel's long-term sustainability goals.
-      </div>
-    </div>
-    <!-- Card 9: 2024 -->
-    <div class="timeline-card">
-      <div class="year">2024</div>
-      <div class="event-title">Sustainability Summit</div>
-      <img src="https://placehold.co/250x100" alt="Placeholder Image" />
-      <div class="event-desc">
-        Intel hosts its first Sustainability Summit, uniting suppliers, 
-        government officials, and industry leaders to collaborate on 
-        next-generation sustainable semiconductor manufacturing.
+  <!-- 
+    We wrap the timeline in Bootstrap's grid system for better structure.
+    This does not change the timeline itself.
+  -->
+  <section class="container my-4" aria-label="Intel Sustainability Timeline">
+    <div class="row">
+      <div class="col-12">
+        <!-- Add a Bootstrap alert for a friendly welcome message -->
+        <div class="alert alert-info alert-dismissible fade show mb-4 text-center custom-alert" role="alert">
+          <strong>Welcome!</strong> Explore Intel's sustainability journey below. 
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        <!-- Add a wrapper for timeline and grid to animate them when alert closes -->
+        <div id="main-content-animate">
+          <section class="timeline">
+            <!-- Card 1: 1968 -->
+            <div class="timeline-card" tabindex="0" aria-labelledby="event-1968-title" aria-describedby="event-1968-desc">
+              <div class="year">1968</div>
+              <div class="event-title" id="event-1968-title">Intel Founded</div>
+              <img src="img/1.jpg" alt="Intel founders in 1968" />
+              <!-- Overlay description for this event -->
+              <div class="event-desc" id="event-1968-desc">
+                Robert Noyce and Gordon Moore rename the newly formed company 
+                NM Electronics to Intel Corporation, laying the foundation for 
+                decades of technological innovation.
+              </div>
+            </div>
+            <!-- Card 2: 1971 -->
+            <div class="timeline-card" tabindex="0" aria-labelledby="event-1971-title" aria-describedby="event-1971-desc">
+              <div class="year">1971</div>
+              <div class="event-title" id="event-1971-title">First Microprocessor</div>
+              <img src="img/2.jpg" alt="Intel 4004 microprocessor" />
+              <div class="event-desc" id="event-1971-desc">
+                Intel debuts the 4004, the world's first commercial microprocessor, 
+                igniting the microprocessor revolution and propelling the future 
+                of computing devices.
+              </div>
+            </div>
+            <!-- Card 3: 1978 -->
+            <div class="timeline-card" tabindex="0" aria-labelledby="event-1978-title" aria-describedby="event-1978-desc">
+              <div class="year">1978</div>
+              <div class="event-title" id="event-1978-title">8086 Processor</div>
+              <img src="img/3.jpg" alt="Intel 8086 processor" />
+              <div class="event-desc" id="event-1978-desc">
+                Launch of the 8086 processor, establishing the x86 architecture 
+                that drives countless PCs and servers in the modern era.
+              </div>
+            </div>
+            <!-- Card 4: 1985 -->
+            <div class="timeline-card" tabindex="0" aria-labelledby="event-1985-title" aria-describedby="event-1985-desc">
+              <div class="year">1985</div>
+              <div class="event-title" id="event-1985-title">386 Processor</div>
+              <img src="img/4.jpg" alt="Intel 386 processor" />
+              <div class="event-desc" id="event-1985-desc">
+                Intel introduces the 386 processor with 32-bit architecture, 
+                ushering in a new era of performance and multitasking for 
+                personal computers.
+              </div>
+            </div>
+            <!-- Card 5: 2006 -->
+            <div class="timeline-card" tabindex="0" aria-labelledby="event-2006-title" aria-describedby="event-2006-desc">
+              <div class="year">2006</div>
+              <div class="event-title" id="event-2006-title">Peak GHG Emissions</div>
+              <img src="https://placehold.co/250x100" alt="Intel factory emissions 2006" />
+              <div class="event-desc" id="event-2006-desc">
+                This year marks Intel's highest annual greenhouse gas emissions 
+                for operations. Over subsequent years, Intel invests heavily in 
+                chemical abatement, renewable energy, and energy-efficient 
+                manufacturing to reverse this trend.
+              </div>
+            </div>
+            <!-- Card 6: 2020 -->
+            <div class="timeline-card" tabindex="0" aria-labelledby="event-2020-title" aria-describedby="event-2020-desc">
+              <div class="year">2020</div>
+              <div class="event-title" id="event-2020-title">RISE Strategy</div>
+              <img src="https://placehold.co/250x100" alt="Intel RISE strategy 2020" />
+              <div class="event-desc" id="event-2020-desc">
+                Intel launches its RISE (Responsible, Inclusive, Sustainable, 
+                Enabling) strategy and 2030 goals, aiming to drive industry-wide 
+                progress on climate action, water stewardship, and waste reduction.
+              </div>
+            </div>
+            <!-- Card 7: 2022 -->
+            <div class="timeline-card" tabindex="0" aria-labelledby="event-2022-title" aria-describedby="event-2022-desc">
+              <div class="year">2022</div>
+              <div class="event-title" id="event-2022-title">Net-Zero By 2040</div>
+              <img src="https://placehold.co/250x100" alt="Intel net-zero announcement 2022" />
+              <div class="event-desc" id="event-2022-desc">
+                Intel announces its commitment to achieve net-zero greenhouse 
+                gas emissions (Scope 1 and 2) across its global operations 
+                by 2040, building on years of environmental initiatives.
+              </div>
+            </div>
+            <!-- Card 8: 2023 -->
+            <div class="timeline-card" tabindex="0" aria-labelledby="event-2023-title" aria-describedby="event-2023-desc">
+              <div class="year">2023</div>
+              <div class="event-title" id="event-2023-title">Renewable Electricity</div>
+              <img src="https://placehold.co/250x100" alt="Intel renewable electricity 2023" />
+              <div class="event-desc" id="event-2023-desc">
+                The company achieves 99% renewable electricity usage worldwide, 
+                helping to drastically lower carbon emissions and driving progress 
+                toward Intel's long-term sustainability goals.
+              </div>
+            </div>
+            <!-- Card 9: 2024 -->
+            <div class="timeline-card" tabindex="0" aria-labelledby="event-2024-title" aria-describedby="event-2024-desc">
+              <div class="year">2024</div>
+              <div class="event-title" id="event-2024-title">Sustainability Summit</div>
+              <img src="https://placehold.co/250x100" alt="Intel Sustainability Summit 2024" />
+              <div class="event-desc" id="event-2024-desc">
+                Intel hosts its first Sustainability Summit, uniting suppliers, 
+                government officials, and industry leaders to collaborate on 
+                next-generation sustainable semiconductor manufacturing.
+              </div>
+            </div>
+          </section>
+        </div>
       </div>
     </div>
   </section>
-  <p>Scroll to view timeline | Hover over cards to learn more!</p>
+  
 
   <!-- 
     Bootstrap grid section with three columns.
     Each column uses a Bootstrap icon and a styled "Learn More" link.
     The grid adapts to different screen sizes automatically.
   -->
-  <section class="container my-4">
+  <section class="container my-4" aria-label="Intel Sustainability Highlights" id="grid-animate">
     <div class="row">
       <!-- 
         We use col-12 for small screens (full width),
@@ -195,13 +213,13 @@
         <!-- Icon and heading -->
         <h2>
           <i class="bi bi-globe2" aria-hidden="true"></i>
-          Global Impact
+          <span>Global Impact</span>
         </h2>
         <p>
           Discover how Intel's innovations have made a difference around the world.
         </p>
-        <!-- Styled "Learn More" link -->
-        <a href="#" class="btn btn-primary">
+        <!-- Styled "Learn More" link with improved contrast -->
+        <a href="#" class="btn btn-primary" aria-label="Learn more about Global Impact" style="background-color:#005fa3; color:#fff;">
           Learn More
           <i class="bi bi-arrow-left-short" aria-hidden="true"></i>
         </a>
@@ -210,12 +228,12 @@
       <div class="col-12 col-md-6 col-lg-4 mb-4">
         <h2>
           <i class="bi bi-lightbulb" aria-hidden="true"></i>
-          Innovation
+          <span>Innovation</span>
         </h2>
         <p>
           See the technology breakthroughs that drive sustainability at Intel.
         </p>
-        <a href="#" class="btn btn-success">
+        <a href="#" class="btn btn-success" aria-label="Learn more about Innovation" style="background-color:#218838; color:#fff;">
           Learn More
           <i class="bi bi-arrow-left-short" aria-hidden="true"></i>
         </a>
@@ -224,17 +242,210 @@
       <div class="col-12 col-md-6 col-lg-4 mb-4">
         <h2>
           <i class="bi bi-people" aria-hidden="true"></i>
-          Community
+          <span>Community</span>
         </h2>
         <p>
           Learn about Intel's work with communities and partners for a better future.
         </p>
-        <a href="#" class="btn btn-info text-white">
+        <a href="#" class="btn btn-info text-white" aria-label="Learn more about Community" style="background-color:#0071c5; color:#fff;">
           Learn More
           <i class="bi bi-arrow-left-short" aria-hidden="true"></i>
         </a>
       </div>
     </div>
   </section>
+
+  <!-- 
+    Bootstrap subscription form for Intel's sustainability newsletter.
+    The form text and direction will change based on the page language.
+    We use Bootstrap's card and form classes for a clean, centered look.
+    The form will also use RTL layout if the page is RTL.
+  -->
+  <section class="container my-5" aria-label="Newsletter Subscription" id="newsletter-animate">
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-8 col-lg-6">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <!-- Section heading -->
+            <h2 class="text-center mb-4" id="newsletter-heading">
+              Subscribe to Intel's Sustainability Newsletter
+            </h2>
+            <div id="newsletter-form-wrapper">
+              <form id="newsletter-form" aria-label="Subscribe to newsletter">
+                <!-- Email input field -->
+                <div class="mb-3">
+                  <label for="newsletter-email" class="form-label" id="newsletter-label">
+                    Your Email
+                  </label>
+                  <input type="email" class="form-control" id="newsletter-email" placeholder="name@example.com" required aria-required="true" aria-describedby="newsletter-note">
+                </div>
+                <!-- Subscribe button, centered -->
+                <div class="d-grid">
+                  <button type="submit" class="btn btn-primary" id="newsletter-btn">
+                    Subscribe Now
+                  </button>
+                </div>
+              </form>
+              <!-- Small note for users -->
+              <p class="text-center mt-3 mb-0" style="font-size: 0.95em;" id="newsletter-note">
+                We'll send you the latest sustainability news from Intel. You can unsubscribe at any time.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // This script checks the user's language and sets the direction accordingly.
+    // It also observes changes to the <html> lang attribute and updates the direction in real time.
+    function setDirectionByLang() {
+      var rtlLangs = ['ar', 'he', 'fa', 'ur'];
+      // Get the lang attribute from the <html> tag, fallback to browser language
+      var htmlLang = document.documentElement.getAttribute('lang') || '';
+      var userLang = htmlLang || navigator.language || navigator.userLanguage || 'en';
+      var langCode = userLang.split('-')[0];
+      if (rtlLangs.includes(langCode)) {
+        document.documentElement.setAttribute('dir', 'rtl');
+      } else {
+        document.documentElement.setAttribute('dir', 'ltr');
+      }
+    }
+    // Set direction on page load
+    setDirectionByLang();
+    // Listen for language changes and update direction in real time
+    if ('languagechange' in window) {
+      window.addEventListener('languagechange', setDirectionByLang);
+    }
+    // Observe changes to the <html> lang attribute (for dynamic translation)
+    var observer = new MutationObserver(function(mutations) {
+      mutations.forEach(function(mutation) {
+        if (mutation.attributeName === 'lang') {
+          setDirectionByLang();
+        }
+      });
+    });
+    observer.observe(document.documentElement, { attributes: true });
+
+    // Simple translations for the newsletter form
+    var newsletterTranslations = {
+      ar: {
+        heading: "اشترك في نشرة الاستدامة من إنتل",
+        label: "بريدك الإلكتروني",
+        button: "اشترك الآن",
+        note: "سنرسل لك آخر أخبار الاستدامة من إنتل. يمكنك إلغاء الاشتراك في أي وقت.",
+        placeholder: "name@مثال.كوم"
+      },
+      en: {
+        heading: "Subscribe to Intel's Sustainability Newsletter",
+        label: "Your Email",
+        button: "Subscribe Now",
+        note: "We'll send you the latest sustainability news from Intel. You can unsubscribe at any time.",
+        placeholder: "name@example.com"
+      }
+    };
+
+    function setNewsletterLang() {
+      // Get the lang attribute from <html>
+      var htmlLang = document.documentElement.getAttribute('lang') || 'en';
+      var langCode = htmlLang.split('-')[0];
+      // Use Arabic if RTL, otherwise English
+      var isRTL = document.documentElement.getAttribute('dir') === 'rtl';
+      var t = isRTL && newsletterTranslations[langCode] ? newsletterTranslations[langCode] : newsletterTranslations['en'];
+      document.getElementById('newsletter-heading').textContent = t.heading;
+      document.getElementById('newsletter-label').textContent = t.label;
+      document.getElementById('newsletter-btn').textContent = t.button;
+      document.getElementById('newsletter-note').textContent = t.note;
+      // Set input placeholder and direction
+      var emailInput = document.getElementById('newsletter-email');
+      if (emailInput) {
+        emailInput.placeholder = t.placeholder;
+        emailInput.dir = isRTL ? 'rtl' : 'ltr';
+        emailInput.style.textAlign = isRTL ? 'right' : 'left';
+      }
+    }
+
+    // Set newsletter language on page load and when lang changes
+    setNewsletterLang();
+    // Also update when lang attribute changes (for dynamic translation)
+    var newsletterObserver = new MutationObserver(function(mutations) {
+      mutations.forEach(function(mutation) {
+        if (mutation.attributeName === 'lang' || mutation.attributeName === 'dir') {
+          setNewsletterLang();
+        }
+      });
+    });
+    newsletterObserver.observe(document.documentElement, { attributes: true });
+
+    // Adjust the newsletter form layout to RTL if the page is RTL
+    function setNewsletterFormDir() {
+      var isRTL = document.documentElement.getAttribute('dir') === 'rtl';
+      var formWrapper = document.getElementById('newsletter-form-wrapper');
+      if (formWrapper) {
+        formWrapper.setAttribute('dir', isRTL ? 'rtl' : 'ltr');
+      }
+    }
+
+    // Call on page load and whenever direction changes
+    setNewsletterFormDir();
+    var formDirObserver = new MutationObserver(function(mutations) {
+      mutations.forEach(function(mutation) {
+        if (mutation.attributeName === 'dir') {
+          setNewsletterFormDir();
+        }
+      });
+    });
+    formDirObserver.observe(document.documentElement, { attributes: true });
+  </script>
+  <!-- 
+    Footer section at the bottom of the page.
+    We use Bootstrap classes to center the text and add padding.
+  -->
+  <footer class="bg-light text-center py-3 mt-4" role="contentinfo">
+    <!-- Students: &copy; means the copyright symbol -->
+    &copy; 2025 Intel Corporation. All rights reserved.
+  </footer>
+
+  <!-- Add Bootstrap JS for interactive elements like alert close button -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+  // Remove animation logic, keep only the alert close functionality if needed
+  document.addEventListener('DOMContentLoaded', function() {
+    var alertEl = document.querySelector('.custom-alert');
+    if (alertEl) {
+      alertEl.addEventListener('close.bs.alert', function () {
+        alertEl.classList.add('fade-out-smooth');
+      });
+    }
+  });
+  </script>
+  <style>
+.custom-alert {
+  /* Only fade out the alert, no transform or animation for content */
+  transition: opacity 0.7s;
+}
+.custom-alert.fade-out-smooth {
+  opacity: 0 !important;
+}
+
+/* Remove all custom slide-up and pre-animate styles */
+.slide-up-animate-slow,
+.pre-animate {
+  animation: none !important;
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+section.container,
+.timeline-card,
+footer {
+  transition: box-shadow 0.4s, background 0.4s, color 0.4s, transform 0.4s;
+}
+.timeline-card:hover {
+  box-shadow: 0 6px 24px rgba(0,113,197,0.15);
+  transform: translateY(-6px) scale(1.03);
+}
+</style>
 </body>
 </html>

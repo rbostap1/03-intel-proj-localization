@@ -59,7 +59,7 @@ body {
 .hero p {
   /* Slightly smaller text for the subheading */
   font-size: 1.2em;
-  color: #e0e0e0; /* Light color for better contrast on blue */
+  color: #f5f5f5; /* Brighter text for better contrast */
   font-family: 'Segoe UI', 'Arial', sans-serif;
   width: 590px;
   margin-left: auto;
@@ -87,12 +87,12 @@ body {
   /* Prevent wrapping so we can scroll horizontally */
   flex-wrap: nowrap;
   justify-content: flex-start;
-  gap: 40px; /* Increased space between cards */
+  gap: 80px; /* Increased space between cards from 40px to 56px */
   padding: 20px 0;
   overflow-x: auto;
   /* Make the scroll view bigger to show more cards at once */
-  width: 1300px; /* Shows 5 bigger cards * 250px + 4 gaps * 10px = 1300px */
-  max-width: 100%;
+  width: 100%; /* Shows 5 bigger cards * 250px + 4 gaps * 10px = 1300px */
+  min-width: 0; /* Prevent overflow on small screens */
   margin-left: auto;
   margin-right: auto;
   scroll-snap-type: x mandatory; /* Enable horizontal scroll snap */
@@ -107,12 +107,13 @@ body {
     max-height: 80vh;           /* Responsive max height */
     overflow-x: hidden;         /* Hide horizontal scroll */
     overflow-y: auto;           /* Enable vertical scroll */
-    gap: 24px;                  /* Less gap for mobile */
+    gap: 32px                  /* Increased gap for mobile from 24px to 32px */
     padding: 10px 0;
     -webkit-overflow-scrolling: touch; /* Smooth scrolling on mobile */
   }
   .timeline-card {
-    width: 90%;                 /* Make cards fit nicely on mobile */
+    width: 98%;
+    min-width: 0;
     max-width: 350px;
     margin-left: auto;
     margin-right: auto;
@@ -128,8 +129,23 @@ body {
   }
   .timeline {
     width: 100%;
+    min-width: 0;
     padding: 10px 0;
-    gap: 24px;
+    gap: 32px; /* Increased gap for medium screens from 24px to 32px */
+  }
+}
+
+/* Responsive: Make hero section and grid padding more flexible */
+@media (max-width: 1000px) {
+  .container,
+  .container.my-4,
+  .container.my-5 {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .timeline {
+    width: 100%;
+    min-width: 0;
   }
 }
 
@@ -154,7 +170,7 @@ body {
     max-height: none;
     overflow-x: hidden;
     overflow-y: visible;
-    gap: 18px;
+    gap: 24px; /* Keep a reasonable gap for very small screens */
     padding: 10px 0;
   }
   .timeline-card {
@@ -222,11 +238,13 @@ body > p {
 /* Timeline card styles */
 .timeline-card {
   /* Use a simple box for each event */
+  color: #1a1a1a; /* Darker text for better readability */
   background: #fff;
-  color: #222;
   border-radius: 10px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.08);
   width: 250px;
+  min-width: 220px; /* Allow cards to shrink a bit on small screens */
+  max-width: 100%;
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -324,4 +342,55 @@ body > p {
   /* Hide the front content when overlay is shown */
   opacity: 0;
   transition: opacity 0.3s;
+}
+
+/* Intel-style footer */
+footer {
+  background: linear-gradient(90deg, #0071c5 0%, #00aee6 100%);
+  color: #fff;
+  font-family: 'Segoe UI', 'Arial', sans-serif;
+  font-size: 1.05em;
+  letter-spacing: 0.5px;
+  border-top: 4px solid #7fd7ff;
+  box-shadow: 0 -2px 8px rgba(0,113,197,0.07);
+  word-break: break-word;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+footer a {
+  color: #fff;
+  text-decoration: underline;
+}
+footer a:focus,
+footer a:hover {
+  color: #7fd7ff;
+  background: #003b5c;
+  outline: 2px solid #fff;
+}
+
+/* Improve focus visibility for keyboard users */
+.timeline-card:focus {
+  outline: 3px solid #0071c5;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px #7fd7ff55;
+}
+
+/* Make buttons more visually distinct and accessible */
+.btn,
+.btn:focus {
+  font-weight: bold;
+  border-width: 2px;
+  outline: none;
+  box-shadow: none;
+}
+
+.btn:focus-visible {
+  outline: 3px solid #0071c5;
+  outline-offset: 2px;
+}
+
+/* Ensure sufficient padding for clickable elements */
+.btn,
+.timeline-card {
+  min-height: 44px; /* Minimum touch target size */
 }
